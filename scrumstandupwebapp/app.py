@@ -10,11 +10,11 @@ app = Flask(__name__)
 # Get configs
 app.config.from_object('config.DevelopmentConfig')
 mydb = mysql.connector.connect(
-    host='standup-app.chlpkq5ju0sa.eu-west-1.rds.amazonaws.com',
+    host='{{ secrets.AWS_DB_INSTANCE }}',
     port='3306',
     user='root',
-    password='scrum*ndup',
-    database='scrumstandupdb'
+    password='${{ secrets.AWS_DB_PASSWORD }}',
+    database='${{ AWS_DB_NAME }}'
     )
 
 cursor = mydb.cursor(buffered=True)
