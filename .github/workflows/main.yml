@@ -13,4 +13,5 @@ jobs:
       uses: actions/checkout@v4
 
     - name: run script on rds
-      run: ./database/init.sql -Instance ${{ secrets.AWS_DB_INSTANCE }} -DbName ${{ secrets.AWS_DB_NAME }} -UID ${{ secrets.AWS_DB_UID }} -Password ${{ secrets.AWS_DB_PASSWORD }}
+      run: |
+        mysql --protocol=tcp -h ${{ secrets.AWS_DB_INSTANCE }} -P 3306 -uroot -p${{ secrets.AWS_DB_PASSWORD }} -e "./database/init.sql"
