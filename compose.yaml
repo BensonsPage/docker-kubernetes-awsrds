@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  scrumstandupwebapp:
+    container_name: scrumstandupwebapp
+    build: ./scrumstandupwebapp
+    restart: always
+    ports:
+      - 8000:5000
+volumes:
+  data:
