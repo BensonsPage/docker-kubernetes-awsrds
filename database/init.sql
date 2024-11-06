@@ -1,7 +1,7 @@
 -- create applications database and relevant tables with relationships and constraints.
 -- mysql --host=127.0.0.1 --port=3306 -u root -p
 
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'scrum*ndup';
+ALTER USER 'root'@'standup-app.chlpkq5ju0sa.eu-west-1.rds.amazonaws.com' IDENTIFIED BY 'scrum*ndup';
 FLUSH PRIVILEGES;
 
 CREATE DATABASE IF NOT EXISTS scrumstandupdb;
