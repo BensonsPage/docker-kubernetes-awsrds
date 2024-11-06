@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scrumstandupwebapp
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: scrumstandupwebapp
+  template:
+    metadata:
+      labels:
+        app: scrumstandupwebapp
+    spec:
+      containers:
+        - name: scrumstandupwebapp
+          image: docker-kubernetes-awsrds-scrumstandupwebapp
+          imagePullPolicy: Never
+---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: webapp-service
+#  namespace: default
+#spec:
+#  selector:
+#    app: scrumstandupwebapp
+#  ports:
+#    - protocol: "TCP"
+#      port: 5000
+#      targetPort: 6000
+#  type: LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: scrumstandupwebapp
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30001

@@ -1,0 +1,16 @@
+name: run script on rds
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: run script on rds
+      run: ./database/init.sql -Instance ${{ secrets.AWS_DB_INSTANCE }} -DbName ${{ secrets.AWS_DB_NAME }} -UID ${{ secrets.AWS_DB_UID }} -Password ${{ secrets.AWS_DB_PASSWORD }}
