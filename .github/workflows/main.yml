@@ -14,4 +14,4 @@ jobs:
 
     - name: run script on rds
       run: |
-        mysql --protocol=tcp -h ${{ secrets.AWS_DB_INSTANCE }} -P 3306 -uroot -p${{ secrets.AWS_DB_PASSWORD }} -e "./database/init.sql"
+        mysql --protocol=tcp -h ${{ secrets.AWS_DB_INSTANCE }} -P 3306 -uroot -p${{ secrets.AWS_DB_PASSWORD }} -e "$(cat $(find ./ -name init.sql))"
