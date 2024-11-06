@@ -28,8 +28,8 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    HOST = 'db'
+    HOST = '{{ secrets.AWS_DB_INSTANCE }}'
     USER = 'root'
-    PASSWORD = 'scrum*ndup'
+    PASSWORD = '${{ secrets.AWS_DB_PASSWORD }}'
     PORT = 3306
-    DATABASE = 'scrumstandupdb'
+    DATABASE = '${{ AWS_DB_NAME }}'
