@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS notes (
     FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-INSERT INTO users (user_id, email, name, password, token) VALUES(1, "bensonspage@gmail.com", "Benson Kimani",
+INSERT INTO users (email, name, password, token) VALUES("bensonspage@gmail.com", "Benson Kimani",
     "sha256$MnGmaYTZNwGCMn9L$9c408a0886b824ed3b7e873e4e95e5149d42c2b5fd7020035f6ed5536a630b89", "TKN03578");
 INSERT INTO notes (note, user_id) VALUES("Finished on the user creation, pushing solution to feature branch for testing", 1);
 
