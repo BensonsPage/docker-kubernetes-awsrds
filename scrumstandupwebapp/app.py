@@ -14,7 +14,7 @@ mydb = mysql.connector.connect(
     port='3306',
     user='root',
     password='${{ secrets.AWS_DB_PASSWORD }}',
-    database='${{ AWS_DB_NAME }}'
+    database='${{ secrets.AWS_DB_NAME }}'
     )
 
 cursor = mydb.cursor(buffered=True)
